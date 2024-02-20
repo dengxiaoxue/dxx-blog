@@ -27,6 +27,12 @@ const i18nText = reactive({
   <button type="button" style="margin-left: 10px" @click="setTheme('dark')">
     {{ i18nText.dark }}
   </button>
+  <div>
+    <router-link to="/"> {{ i18nText.home }} </router-link>
+    -
+    <router-link to="/about"> {{ i18nText.demo }} </router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>

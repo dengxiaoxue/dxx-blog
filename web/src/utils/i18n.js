@@ -1,4 +1,5 @@
 import { ref, computed } from "vue";
+import { createRouter, createWebHistory } from 'vue-router'
 const currentTheme = ref("light");
 let themeMap = {
   light: {},
@@ -88,6 +89,7 @@ const i18n = (t) => computed(() => {
 const dasWeb = {
   install: (t, n) => (
     t.use(L, n), // 安装自定义插件
+    t.use(R, n), // 路由
     initTheme(n), // 初始化主题色
     initLang(n), // 初始化语言
     // 这句看起来没什么用
@@ -112,7 +114,20 @@ const L = {
       e.default && e.default.install && t.use(e.default, n);
     });
   }
-};
+}
+const R = {
+  install: (app, n) => {
+    if (!n.router) return
+    const result = n.router
+    ? { routes: Object.values(n.router).map((s) => s.default).filter((s) => !!s).flat().sort((s, o) => (s.index ?? 0) - (o.index ?? 0)) } 
+    : { routes: [] }
+    const router = createRouter({
+      history: createWebHistory(),
+      routes: result.routes
+    })
+    app.use(router);
+  }
+}
 export {
   dasWeb, // 作为插件使用 app.use(dasWeb2, {})时初始化
   i18n,
