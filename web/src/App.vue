@@ -33,6 +33,7 @@ const i18nText = reactive({
     <router-link to="/about"> {{ i18nText.demo }} </router-link>
     <router-view></router-view>
   </div>
+  <demo></demo>
 </template>
 
 <style>
