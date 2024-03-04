@@ -1,0 +1,7 @@
+{
+  "name": "dxx-backend",
+  "version": "1.0.0",
+  "dependencies": {
+    "koa": "^2.13.1"
+  }
+}

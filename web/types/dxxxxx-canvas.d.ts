@@ -9,3 +9,8 @@ declare module 'dxxxxx-canvas' {
  */
   export = content
 }
+
+// declare module 'dxx-web-ui' {
+//   const content: any
+//   export = content
+// }

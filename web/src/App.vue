@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { i18n, setLang, setTheme } from "./utils/i18n";
+import { DxxHelloWorld, DxxNavBar } from 'dxx-web-ui'
 
 const i18nText = reactive({
   home: i18n("home-router"),
@@ -12,6 +13,7 @@ const i18nText = reactive({
 
 <template>
   <div>
+    <DxxNavBar></DxxNavBar>
     <a href="#">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -34,6 +36,7 @@ const i18nText = reactive({
     <router-view></router-view>
   </div>
   <demo></demo>
+  <DxxHelloWorld msg="我是hello world组件"></DxxHelloWorld>
 </template>
 
 <style>
