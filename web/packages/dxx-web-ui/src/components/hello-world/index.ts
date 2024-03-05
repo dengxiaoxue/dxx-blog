@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref } from 'vue'
 import { withInstall } from '../../utils/index'
 import HelloWorld from './src/index.vue'
 

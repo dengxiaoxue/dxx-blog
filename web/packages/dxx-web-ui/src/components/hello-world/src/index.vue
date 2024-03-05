@@ -5,12 +5,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ElAffix, ElButton } from 'element-plus'
 
 defineProps<{ msg: string }>()
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
+  <ElAffix><el-button type="primary">Offset top 120px</el-button></ElAffix>
 </template>
 
 <style scoped>

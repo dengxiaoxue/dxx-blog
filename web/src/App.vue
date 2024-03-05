@@ -1,33 +1,21 @@
-<script setup lang="ts">
-import { reactive } from "vue";
-import { i18n, setLang, setTheme } from "./utils/i18n";
-import { DxxHelloWorld, DxxNavBar } from 'dxx-web-ui'
-
-const i18nText = reactive({
-  home: i18n("home-router"),
-  demo: i18n("demo-router"),
-  light: i18n("light"),
-  dark: i18n("dark"),
-});
-</script>
-
 <template>
+  <DxxNavBar
+    :menus="menus"
+    :placeholder="i18n('placeholder-search').value"
+    @switch-theme="(val: boolean) => val? setTheme('dark'): setTheme('light')"
+    @switch-lang="(val: boolean) => val ? setLang('en'): setLang('zh-CN')"
+  >
+  </DxxNavBar>
   <div>
-    <DxxNavBar></DxxNavBar>
     <a href="#">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
-    <a href="#">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
   </div>
-  <button type="button" @click="setLang('zh-CN')">中</button>
-  <button type="button" style="margin-left: 10px" @click="setLang('en')">
-    英
+  <button type="button" @click="setLang('zh-CN')">
+    {{ i18nText.Chinese }}
   </button>
-  <button type="button" @click="setTheme('light')">{{ i18nText.light }}</button>
-  <button type="button" style="margin-left: 10px" @click="setTheme('dark')">
-    {{ i18nText.dark }}
+  <button type="button" style="margin-left: 10px" @click="setLang('en')">
+    {{ i18nText.English }}
   </button>
   <div>
     <router-link to="/"> {{ i18nText.home }} </router-link>
@@ -39,15 +27,35 @@ const i18nText = reactive({
   <DxxHelloWorld msg="我是hello world组件"></DxxHelloWorld>
 </template>
 
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+import { i18n, setLang, setTheme } from './utils/i18n'
+import { DxxHelloWorld, DxxNavBar } from 'dxx-web-ui'
+
+const i18nText = reactive({
+  home: i18n('home-router'),
+  demo: i18n('essay-router'),
+  Chinese: i18n('Chinese'),
+  English: i18n('English')
+})
+
+const menus = ref([
+  { id: '1', name: i18n('home-router') },
+  { id: '2', name: i18n('essay-router') },
+  { id: '3', name: i18n('photo-router') },
+  { id: '4', name: i18n('message-router') }
+])
+</script>
+
 <style>
 /* 修改颜色 */
 body {
-  background: var(--hello-bg);
-  color: var(--hello-color);
+  background: var(--common-bg);
+  color: var(--common-color);
 }
 button {
-  background: var(--btn-bg);
-  color: var(--btn-color);
+  background: var(--common-btn-bg);
+  color: var(--common-btn-color);
 }
 
 .logo {
