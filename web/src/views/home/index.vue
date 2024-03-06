@@ -1,13 +1,12 @@
 <template>
   <div class="dxx-home-page">
     <span class="dxx-home-page-title">home123-Linyi</span>
-    <!-- <img src="/vite.svg" class="logo" alt="Vite logo" /> -->
-    <!-- <DxxAuthorCard width="260" height="315"></DxxAuthorCard> -->
+    <DxxAuthorCard width="260" height="315"></DxxAuthorCard>
   </div>
 </template>
 
 <script setup lang="ts">
-// import { DxxAuthorCard } from '@/components/author-card'
+import { DxxAuthorCard } from '@/components/author-card'
 </script>
 
 <style scoped lang="scss">
