@@ -1,12 +1,12 @@
 <template>
-  <div class="dxx-nav-bar">
+  <div class="dxx-ui-nav-bar">
     <el-menu
       :default-active="activeMenu"
       mode="horizontal"
       @select="handleSelect"
       :ellipsis="true"
       router
-      class="dxx-nav-bar-menu"
+      class="dxx-ui-nav-bar-menu"
     >
       <template v-for="item in menus">
         <el-menu-item :index="item.to">{{ item.name }} </el-menu-item>
@@ -71,13 +71,13 @@ const switchLang = (val: any) => {
 </script>
 
 <style scoped lang="scss">
-.dxx-nav-bar {
+.dxx-ui-nav-bar {
   padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgb(188, 188, 178);
-  .dxx-nav-bar-menu {
+  .dxx-ui-nav-bar-menu {
     flex: 1;
     background-color: var(--common-bg);
     color: var(--common-color);

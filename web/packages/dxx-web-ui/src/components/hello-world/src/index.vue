@@ -11,12 +11,15 @@ defineProps<{ msg: string }>()
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="hello-div">{{ msg }}</h1>
   <ElAffix><el-button type="primary">Offset top 120px</el-button></ElAffix>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .read-the-docs {
   color: #888;
+}
+.hello-div {
+  color: pink;
 }
 </style>
