@@ -1,11 +1,12 @@
 export type Menus = {
-  id: any
-  name: string
+  name: any
+  to: string
 }
 export interface Props {
   menus: Menus[]
   placeholder: string
-  activeIndex?: any
+  activeMenu: any
+  router?: boolean
 }
 
 export interface Emits {

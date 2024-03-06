@@ -1,5 +1,6 @@
 <template>
   <DxxNavBar
+    :activeMenu="$route.path"
     :menus="menus"
     :placeholder="i18n('placeholder-search').value"
     @switch-theme="(val: boolean) => val? setTheme('dark'): setTheme('light')"
@@ -18,12 +19,8 @@
     {{ i18nText.English }}
   </button>
   <div>
-    <router-link to="/"> {{ i18nText.home }} </router-link>
-    -
-    <router-link to="/about"> {{ i18nText.demo }} </router-link>
     <router-view></router-view>
   </div>
-  <demo></demo>
   <DxxHelloWorld msg="我是hello world组件"></DxxHelloWorld>
 </template>
 
@@ -31,19 +28,20 @@
 import { reactive, ref } from 'vue'
 import { i18n, setLang, setTheme } from './utils/i18n'
 import { DxxHelloWorld, DxxNavBar } from 'dxx-web-ui'
+import { useRoute } from 'vue-router'
+import type { Menus } from 'dxx-web-ui'
+
+const $route = useRoute()
 
 const i18nText = reactive({
-  home: i18n('home-router'),
-  demo: i18n('essay-router'),
   Chinese: i18n('Chinese'),
   English: i18n('English')
 })
-
-const menus = ref([
-  { id: '1', name: i18n('home-router') },
-  { id: '2', name: i18n('essay-router') },
-  { id: '3', name: i18n('photo-router') },
-  { id: '4', name: i18n('message-router') }
+const menus = ref<Menus[]>([
+  { name: i18n('home-router'), to: '/' },
+  { name: i18n('essay-router'), to: '/essay' },
+  { name: i18n('photo-router'), to: '/photo' },
+  { name: i18n('message-router'), to: '/message' }
 ])
 </script>
 

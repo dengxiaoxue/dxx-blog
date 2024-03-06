@@ -1,14 +1,15 @@
 <template>
   <div class="dxx-nav-bar">
     <el-menu
-      :default-active="activeIndex"
+      :default-active="activeMenu"
       mode="horizontal"
       @select="handleSelect"
       :ellipsis="true"
+      router
       class="dxx-nav-bar-menu"
     >
       <template v-for="item in menus">
-        <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
+        <el-menu-item :index="item.to">{{ item.name }} </el-menu-item>
       </template>
       <!-- <el-sub-menu index="2">
         <template #title>随笔</template>
@@ -44,20 +45,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { ElMenu, ElMenuItem, ElSubMenu, ElInput, ElSwitch } from 'element-plus'
 import { Search, Sunny, Moon, Star, Promotion } from '@element-plus/icons-vue'
-import type { Emits, Props, Menus } from './type.sfc'
+import type { Emits, Props } from './type.sfc'
 
-const props = defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  router: true
+})
 const emits = defineEmits<Emits>()
 
 const searchModelVal = ref('')
 const themeSwitch = ref()
 const langSwitch = ref()
-const activeIndex = computed(() =>
-  props.menus && props.menus?.length > 0 ? props.menus[0].id : ''
-)
 
 const handleSelect = (key: string, keyPath: string[]) => {
   emits('menu-handle-select', key, keyPath)

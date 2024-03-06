@@ -38,8 +38,8 @@ const initTheme = (t: any) => {
     const s = `${prefix}${key}`
     vStyle(s, themeMap[key])
   }
-  document.body.classList.remove(`${prefix}light`),
-    document.body.classList.add(`${prefix}light`)
+  document.body.classList.remove(`${prefix}light`)
+  document.body.classList.add(`${prefix}light`)
 }
 const setTheme = (t: any) => {
   document.body.classList.add(`${prefix}light`)
