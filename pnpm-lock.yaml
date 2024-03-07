@@ -87,6 +87,9 @@ importers:
       dxx-backend:
         specifier: workspace:^
         version: link:../packages/backend
+      dxx-web:
+        specifier: workspace:^
+        version: link:../packages/dxx-web
       dxx-web-ui:
         specifier: workspace:^
         version: link:../packages/dxx-web-ui
