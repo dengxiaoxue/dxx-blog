@@ -18,7 +18,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* 解决引入ts文件提示：找不到模块或其相应的类型声明。后续有时间再看看到底什么原因 */
+    "baseUrl": "./",  // 解析非相对模块的基础地址，默认是当前目录
+    "paths": { // 路径映射，相对于baseUrl
+        "@/*": ["src/*"]
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "src/**/*.vue", "src/utils/i18n.ts", "types"],
   "references": [{ "path": "./tsconfig.node.json" }]
