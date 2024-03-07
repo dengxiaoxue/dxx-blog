@@ -1,0 +1,12 @@
+{
+  "name": "dxx-blog",
+  "version": "1.0.0",
+  "description": "dxx-blog framework",
+  "private": "true",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
+  "keywords": [],
+  "author": "dengxiaoxue",
+  "license": "ISC"
+}
