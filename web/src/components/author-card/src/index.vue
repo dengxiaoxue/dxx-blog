@@ -2,13 +2,7 @@
   <div class="dxx-ui-author-card" :style="styleCSS">
     <img :src="wallPaperSrc" class="image" alt="博主栏壁纸" width="100%" />
     <div class="user">
-      <img
-        :src="avatarSrc"
-        class="avatar"
-        alt="博主头像"
-        width="75"
-        height="75"
-      />
+      <img :src="avatarSrc" class="avatar" alt="博主头像" width="75" height="75" />
       <p class="motto">{{ motto }}</p>
     </div>
     <div class="count">
@@ -18,12 +12,7 @@
       </div>
     </div>
     <div class="site-links">
-      <a
-        class="site-links-item"
-        v-for="item in siteLinks"
-        target="_blank"
-        :href="item.href"
-      >
+      <a class="site-links-item" v-for="item in siteLinks" target="_blank" :href="item.href">
         <img :src="item.logo" width="20" height="20" />
       </a>
     </div>
@@ -40,36 +29,36 @@ const props = withDefaults(defineProps<Props>(), {
   siteState: [
     {
       title: '文章',
-      count: 43
+      count: 43,
     },
     {
       title: '标签',
-      count: 121
+      count: 121,
     },
     {
       title: '评论',
-      count: 999 + '+'
-    }
+      count: 999 + '+',
+    },
   ],
   siteLinks: [
     {
       logo: '/vite.svg',
-      href: 'https://github.com/SinzMise'
+      href: 'https://github.com/SinzMise',
     },
     {
       logo: '/vite.svg',
-      href: ''
+      href: '',
     },
     {
       logo: '/vite.svg',
-      href: ''
-    }
-  ]
+      href: '',
+    },
+  ],
 })
 const styleCSS = computed(() => {
   return {
     width: props.width + 'px',
-    height: props.height + 'px'
+    height: props.height + 'px',
   }
 })
 </script>
@@ -79,7 +68,7 @@ const styleCSS = computed(() => {
   width: 100%;
   height: 100%;
   // background: rgba(255, 255, 255, 0.8);
-  background: rgba(224, 224, 245, 0.8);
+  background: var(--author-card-bg);
   padding: 85px 15px 15px;
   border-radius: 6px;
   font-size: 12px;
@@ -94,11 +83,7 @@ const styleCSS = computed(() => {
     width: 100%;
     height: 30px;
     z-index: 2;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(144, 144, 249, 0.8)
-    );
+    background: linear-gradient(to bottom, var(--author-card-gradient-deep-bg), var(--author-card-gradient-light-bg));
   }
   .image {
     position: absolute;
@@ -132,7 +117,7 @@ const styleCSS = computed(() => {
       padding: 0px;
     }
     .motto {
-      color: #404044;
+      color: var(--author-card-color);
       text-align: center;
       word-break: break-word;
     }
@@ -150,7 +135,7 @@ const styleCSS = computed(() => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #606266;
+      color: var(--author-card-item-color);
       font-size: 12px;
       .num {
         max-width: 70px;
@@ -159,7 +144,7 @@ const styleCSS = computed(() => {
         text-overflow: ellipsis;
         font-weight: 500;
         font-size: 1.2rem;
-        color: #404044;
+        color: var(--author-card-color);
       }
     }
   }
