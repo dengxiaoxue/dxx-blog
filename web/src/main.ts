@@ -3,7 +3,7 @@ import './style.css'
 import App from './App.vue'
 import { dasWeb } from './utils/i18n'
 import DxxWebUI from 'dxx-web-ui'
-import '@/assets/font/font.css'
+import '@/assets/fonts/font.css'
 
 createApp(App)
   .use(dasWeb, {
