@@ -8,7 +8,7 @@
 }
 
 html, body {
-  min-width: 670px;
+  min-width: 780px;
   height: 100%;
 }
 
@@ -18,3 +18,27 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+/*滚动条样式*/
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; 
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #bebebe;
+  border: 1px solid transparent;
+  transition: border 0.15s;
+  background-clip: 'content-box';
+}
+body::-webkit-scrollbar-corner, body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+/* ::-webkit-scrollbar 滚动条整体部分，可以设置宽度啥的
+::-webkit-scrollbar-button 滚动条两端的按钮
+::-webkit-scrollbar-track 外层轨道
+::-webkit-scrollbar-track-piece 内层滚动槽
+::-webkit-scrollbar-thumb 滚动的滑块
+::-webkit-scrollbar-corner 边角
+::-webkit-resizer 定义右下角拖动块的样式 */
