@@ -88,13 +88,30 @@ import { DxxIcon } from 'dxx-web-ui'
       left: 50%;
       bottom: 0;
       transform: translate(-50%, -50%);
-      border: 1px solid saddlebrown;
       cursor: pointer;
       .arrow-icon {
         position: relative;
-        color: antiquewhite;
+        color: rgb(219, 162, 88);
         transform: rotate(180deg);
+        animation: scroll-down-effect 1.5s infinite;
       }
+    }
+  }
+
+  @keyframes scroll-down-effect {
+    0% {
+      top: 0;
+      opacity: 0.4;
+    }
+    50% {
+      top: -16px;
+      opacity: 1;
+      -ms-filter: none;
+      filter: none;
+    }
+    100% {
+      top: 0;
+      opacity: 0.4;
     }
   }
 }
