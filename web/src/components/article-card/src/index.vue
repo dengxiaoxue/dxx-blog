@@ -89,7 +89,7 @@ const styleCSS = computed(() => {
   display: flex;
   flex-direction: column;
   .top {
-    flex: 1;
+    height: 226px;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -110,7 +110,7 @@ const styleCSS = computed(() => {
     padding: 0;
     display: inline-block;
     overflow: hidden;
-    height: 174px;
+    flex: 1;
     .recent-post-info-top {
       position: relative;
       transition: 0.3s;
@@ -148,7 +148,6 @@ const styleCSS = computed(() => {
       .article-title {
         display: flex;
         font-size: 20px;
-        line-height: 30px;
         font-weight: 700;
         color: #363636;
         transition: 0.3s;
@@ -180,8 +179,7 @@ const styleCSS = computed(() => {
         }
       }
       .tags {
-        height: 28px;
-        line-height: 28px;
+        line-height: 20px;
       }
     }
   }

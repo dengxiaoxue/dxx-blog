@@ -1,5 +1,6 @@
 <template>
   <DxxNavBar
+    class="app-nav-bar"
     :activeMenu="$route.path"
     :menus="menus"
     :placeholder="i18n('placeholder-search').value"
@@ -23,7 +24,7 @@ const menus = reactive<Menus[]>([
   { name: i18n('home-router'), to: '/' },
   { name: i18n('essay-router'), to: '/essay' },
   { name: i18n('photo-router'), to: '/photo' },
-  { name: i18n('message-router'), to: '/message' }
+  { name: i18n('message-router'), to: '/message' },
 ])
 </script>
 
@@ -36,5 +37,11 @@ body {
 button {
   background: var(--common-btn-bg);
   color: var(--common-btn-color);
+}
+
+.app-nav-bar {
+  .el-menu-item {
+    font-size: 20px !important;
+  }
 }
 </style>
