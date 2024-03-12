@@ -1,6 +1,6 @@
 <template>
   <div class="message">
-    <template v-for="item in [1, 2, 3]">
+    <template v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9]">
       <div class="friends_block">
         <div class="user">
           <img
