@@ -76,7 +76,6 @@ const switchLang = (val: any) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgb(188, 188, 178);
   .dxx-ui-nav-bar-menu {
     flex: 1;
     background-color: transparent;

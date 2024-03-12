@@ -21,8 +21,8 @@ export default {
   },
   '--common-alert-color': '#000',
   '--common-nav-bg': {
-    light: 'rgba(255, 255, 255, 0.8)',
-    dark: '#131313',
+    light: 'rgba(255, 255, 255, .8)',
+    dark: '#232323e0',
   },
   '--common-nav-color': {
     light: '#404044',
