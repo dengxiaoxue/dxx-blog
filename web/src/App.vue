@@ -8,7 +8,9 @@
     @switch-lang="(val: boolean) => val ? setLang('en'): setLang('zh-CN')"
   >
   </DxxNavBar>
-  <router-view></router-view>
+  <div class="main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -40,8 +42,22 @@ button {
 }
 
 .app-nav-bar {
+  background-color: var(--common-nav-bg);
+  position: fixed; /* 新属性sticky */
+  top: 0; /* 距离页面顶部距离 */
+  z-index: 1;
+  left: 0;
+  right: 0;
+  min-width: 800px;
   .el-menu-item {
     font-size: 20px !important;
   }
+  .el-menu-item,
+  .el-sub-menu__title {
+    color: var(--common-nav-color);
+  }
+}
+.main {
+  z-index: 0;
 }
 </style>

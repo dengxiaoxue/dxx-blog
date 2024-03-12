@@ -3,12 +3,18 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: var(--common-color);
+  transition: color .2s;
+}
+
 :root {
   font-family: 'myfont' !important;
 }
 
 html, body {
-  min-width: 780px;
+  min-width: 800px;
   height: 100%;
 }
 

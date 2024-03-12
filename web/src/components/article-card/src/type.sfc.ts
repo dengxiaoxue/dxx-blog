@@ -1,4 +1,4 @@
-export interface Props {
+export interface ArticleProps {
   /**宽 */
   width?: string | number
   /**高 */

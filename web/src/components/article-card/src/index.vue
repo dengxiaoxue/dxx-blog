@@ -63,9 +63,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Props } from './type.sfc'
+import type { ArticleProps } from './type.sfc'
 import { computed } from 'vue'
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ArticleProps>(), {
   wallPaperSrc: 'https://www.jsdelivr.ren/gh/SinzMise/picx-images-hosting@master/20240131/20.34xsj1b9tek0.webp',
 })
 const styleCSS = computed(() => {
@@ -88,6 +88,11 @@ const styleCSS = computed(() => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  text-shadow: 0 7px 20px 1px #d7ceff30;
+  // 鼠标移入的时候，有明显的过渡效果。但是鼠标移出的时候，很生硬。
+  // 解决办法，就是在div的初状态也设置一个transition效果
+  transition: all 0.3s ease;
+  padding-bottom: 6px;
   .top {
     height: 226px;
     display: flex;
@@ -102,6 +107,7 @@ const styleCSS = computed(() => {
       height: 100%;
       -o-object-fit: cover;
       object-fit: cover;
+      transition: all 0.5s;
     }
   }
   .recent-post-info {
@@ -133,14 +139,14 @@ const styleCSS = computed(() => {
         }
         .article-categories-original {
           display: flex;
-          color: rgba(60, 60, 67, 0.8);
+          color: var(--article-card--tip-color);
           font-size: 0.75rem;
           position: relative;
           margin-right: 8px;
         }
         .unvisited-post {
           display: flex;
-          color: rgba(60, 60, 67, 0.8);
+          color: var(--article-card--tip-color);
           font-size: 0.75rem;
           position: relative;
         }
@@ -149,14 +155,14 @@ const styleCSS = computed(() => {
         display: flex;
         font-size: 20px;
         font-weight: 700;
-        color: #363636;
+        color: var(--article-card-title-color);
         transition: 0.3s;
         overflow: hidden;
         padding: 3px 0 10px;
       }
     }
     .article-meta-wrap {
-      color: #363636;
+      color: var(--article-card-title-color);
       font-size: 0.7rem;
       padding: 0 32px;
       transition: 0.3s;
@@ -164,7 +170,7 @@ const styleCSS = computed(() => {
       flex-direction: column;
       text-overflow: ellipsis;
       .post-meta-date {
-        color: #363636;
+        color: var(--article-card-title-color);
         font-size: 0.875rem;
         overflow: hidden;
         display: inline-block;
@@ -180,8 +186,18 @@ const styleCSS = computed(() => {
       }
       .tags {
         line-height: 20px;
+        .article-meta__tags {
+          color: var(--article-card--tip-color);
+        }
       }
     }
+  }
+  &:hover .image {
+    transform: scale(1.3);
+  }
+  &:hover {
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.24);
+    transition: transform 0.5s, box-shadow 0.5s;
   }
 }
 </style>

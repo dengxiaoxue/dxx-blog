@@ -51,7 +51,7 @@ import { Search, Sunny, Moon, Star, Promotion } from '@element-plus/icons-vue'
 import type { Emits, Props } from './type.sfc'
 
 withDefaults(defineProps<Props>(), {
-  router: true
+  router: true,
 })
 const emits = defineEmits<Emits>()
 
@@ -79,15 +79,13 @@ const switchLang = (val: any) => {
   border-bottom: 1px solid rgb(188, 188, 178);
   .dxx-ui-nav-bar-menu {
     flex: 1;
-    background-color: var(--common-bg);
-    color: var(--common-color);
-    :deep .el-menu-item,
-    :deep .el-sub-menu__title {
-      color: var(--common-color);
-    }
+    background-color: transparent;
   }
   :deep .el-menu--horizontal.el-menu {
     border-bottom: none;
+  }
+  :deep .el-input__wrapper {
+    background-color: transparent;
   }
 }
 </style>
