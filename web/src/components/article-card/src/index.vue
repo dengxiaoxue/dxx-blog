@@ -91,7 +91,14 @@ const styleCSS = computed(() => {
   text-shadow: 0 7px 20px 1px #d7ceff30;
   // 鼠标移入的时候，有明显的过渡效果。但是鼠标移出的时候，很生硬。
   // 解决办法，就是在div的初状态也设置一个transition效果
-  transition: all 0.3s ease;
+  transition: var(--common-init-transition);
+  &:hover {
+    box-shadow: var(--common-box-shadow);
+    transition: var(--common-hover-transition);
+  }
+  &:hover .image {
+    transform: scale(1.3);
+  }
   padding-bottom: 6px;
   .top {
     height: 226px;
@@ -191,13 +198,6 @@ const styleCSS = computed(() => {
         }
       }
     }
-  }
-  &:hover .image {
-    transform: scale(1.3);
-  }
-  &:hover {
-    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.24);
-    transition: transform 0.5s, box-shadow 0.5s;
   }
 }
 </style>

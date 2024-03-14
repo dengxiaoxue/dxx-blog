@@ -1,15 +1,19 @@
 <template>
-  <div clsss="dxx-essay-page">essay</div>
+  <div class="dxx-essay-page">
+    <essayItem></essayItem>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import essayItem from './components/essay-item.vue'
+</script>
 
 <style scoped lang="scss">
 .dxx-essay-page {
-  width: 400px;
-  height: 800px;
-  border: 1px solid salmon;
-  background-color: aqua;
-  color: pink;
+  height: 100%;
+  padding: 94px 30px 30px 30px;
+  box-sizing: border-box;
+  border-top: 1px solid salmon;
+  background-color: var(--essay-bg);
 }
 </style>

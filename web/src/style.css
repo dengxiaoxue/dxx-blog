@@ -21,8 +21,12 @@ html, body {
 #app {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+article, aside, figure, footer, header, hgroup, section {
+  display: block;
 }
 
 /*滚动条样式*/

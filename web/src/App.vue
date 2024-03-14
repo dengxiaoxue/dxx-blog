@@ -45,7 +45,7 @@ button {
   background-color: var(--common-nav-bg);
   position: fixed; /* 新属性sticky */
   top: 0; /* 距离页面顶部距离 */
-  z-index: 1;
+  z-index: 10;
   left: 0;
   right: 0;
   min-width: 800px;
@@ -58,6 +58,7 @@ button {
   }
 }
 .main {
-  z-index: 0;
+  height: 100%;
+  width: 100%;
 }
 </style>
