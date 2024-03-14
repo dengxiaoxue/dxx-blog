@@ -4,8 +4,8 @@
     :activeMenu="$route.path"
     :menus="menus"
     :placeholder="i18n('placeholder-search').value"
-    @switch-theme="(val: boolean) => val? setTheme('dark'): setTheme('light')"
-    @switch-lang="(val: boolean) => val ? setLang('en'): setLang('zh-CN')"
+    @switch-theme="(val: any) => setTheme(val)"
+    @switch-lang="(val: any) => setLang(val)"
   >
   </DxxNavBar>
   <div class="main">

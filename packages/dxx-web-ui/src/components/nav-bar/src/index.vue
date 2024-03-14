@@ -17,7 +17,7 @@
         <el-menu-item index="2-2">读书感悟</el-menu-item>
       </el-sub-menu> -->
     </el-menu>
-    <div>
+    <div class="right">
       <ElInput
         v-model="searchModelVal"
         style="width: 240px; padding: 15px 10px"
@@ -25,30 +25,26 @@
         :prefix-icon="Search"
       >
       </ElInput>
-      <ElSwitch
-        v-model="themeSwitch"
-        class="ml-2"
-        :active-action-icon="Moon"
-        :inactive-action-icon="Sunny"
-        style="--el-switch-on-color: #565656"
-        @change="switchTheme"
-      ></ElSwitch>
-      <ElSwitch
-        v-model="langSwitch"
-        :active-action-icon="Promotion"
-        :inactive-action-icon="Star"
-        style="--el-switch-on-color: #565656; padding: 0px 10px"
-        @change="switchLang"
-      ></ElSwitch>
+      <el-icon class="dxx-icon" @click="switchTheme" size="20">
+        <Sunny color="#565656" class="icon" :style="{ opacity: currentTheme === 'light' ? 1 : 0 }" />
+        <Moon class="icon" :style="{ opacity: currentTheme === 'dark' ? 1 : 0 }" />
+      </el-icon>
+      <DxxIcon
+        :icon="currentLang === 'en' ? 'en' : 'zh'"
+        class="icon-lang"
+        @click="switchLang"
+        :iconColor="currentTheme === 'light' ? '#56565699' : '#fff'"
+      ></DxxIcon>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElMenu, ElMenuItem, ElSubMenu, ElInput, ElSwitch } from 'element-plus'
-import { Search, Sunny, Moon, Star, Promotion } from '@element-plus/icons-vue'
+import { ElMenu, ElMenuItem, ElSubMenu, ElInput, ElIcon } from 'element-plus'
+import { Search, Sunny, Moon } from '@element-plus/icons-vue'
 import type { Emits, Props } from './type.sfc'
+import { DxxIcon } from '../../icon/index'
 
 withDefaults(defineProps<Props>(), {
   router: true,
@@ -56,17 +52,19 @@ withDefaults(defineProps<Props>(), {
 const emits = defineEmits<Emits>()
 
 const searchModelVal = ref('')
-const themeSwitch = ref()
-const langSwitch = ref()
+const currentTheme = ref<'light' | 'dark'>('light')
+const currentLang = ref<'en' | 'zh-CN'>('zh-CN')
 
 const handleSelect = (key: string, keyPath: string[]) => {
   emits('menu-handle-select', key, keyPath)
 }
-const switchTheme = (val: any) => {
-  emits('switch-theme', val)
+const switchTheme = () => {
+  currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light'
+  emits('switch-theme', currentTheme.value)
 }
-const switchLang = (val: any) => {
-  emits('switch-lang', val)
+const switchLang = () => {
+  currentLang.value = currentLang.value === 'en' ? 'zh-CN' : 'en'
+  emits('switch-lang', currentLang.value)
 }
 </script>
 
@@ -77,6 +75,22 @@ const switchLang = (val: any) => {
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(5px);
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .dxx-icon {
+      cursor: pointer;
+      position: relative;
+      .icon {
+        position: absolute;
+        transition: 0.35s ease-out;
+      }
+    }
+    .icon-lang {
+      margin-left: 10px;
+    }
+  }
   .dxx-ui-nav-bar-menu {
     flex: 1;
     background-color: transparent;

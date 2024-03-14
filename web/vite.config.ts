@@ -16,7 +16,7 @@ export default defineConfig({
     vue(),
     createSvgIconsPlugin({
       // 指定需要缓存的图标文件夹
-      iconDirs: [resolve(process.cwd(), 'src/assets/icons/svg')], // 与本地储存地址一致
+      iconDirs: [resolve(process.cwd(), 'node_modules/dxx-web-ui/src/components/icon/src/icons/svg')], // 与本地储存地址一致
       // 指定symbolId格式
       symbolId: '[name]',
     }),
