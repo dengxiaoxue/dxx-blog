@@ -96,8 +96,8 @@
     z-index: 0;
   }
   #form-wrap:hover {
-    height: 900px;
-    top: -200px;
+    height: 700px;
+    top: 0;
   }
   #beforeimg {
     position: absolute;
@@ -127,7 +127,6 @@
     width: 500px;
     margin: 0px auto;
     transition: all 1s ease-in-out 0.3s;
-    padding-top: 200px;
   }
 
   #maincontent {

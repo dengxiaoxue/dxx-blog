@@ -1,11 +1,14 @@
 <template>
   <div class="dxx-message-page">
     <div class="left">
-      <h1 class="page-title">留言板</h1>
-      <Letter></Letter>
+      <div class="left-box-wrap">
+        <h1 class="page-title">留言板</h1>
+        <Letter></Letter>
+      </div>
       <hr />
-      <!-- <Comment></Comment> -->
-      <CommentBox></CommentBox>
+      <div class="left-box-wrap">
+        <CommentBox></CommentBox>
+      </div>
     </div>
     <div class="right"></div>
   </div>
@@ -13,25 +16,24 @@
 
 <script setup lang="ts">
 import Letter from './letter.vue'
-import Comment from './comment.vue'
 import CommentBox from './comment-box.vue'
 </script>
 
 <style scoped lang="scss">
 .dxx-message-page {
-  height: 100%;
-  padding: 94px 30px 30px 30px;
+  padding: 30px 30px 150px;
   box-sizing: border-box;
-  border-top: 1px solid salmon;
   background-color: var(--essay-bg);
   display: flex;
   .left {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px -4px rgba(44, 45, 48, 0.047);
-    border: 1px solid #e3e8f7;
+    .left-box-wrap {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px -4px rgba(44, 45, 48, 0.047);
+      border: 1px solid #e3e8f7;
+    }
     & > div:first-child {
       transition: all 0.3s ease 0s;
     }

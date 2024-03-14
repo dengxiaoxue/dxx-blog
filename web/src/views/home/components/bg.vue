@@ -24,7 +24,7 @@ const clickArrow = () => {
 
 <style scoped lang="scss">
 .image {
-  height: 100vh; // todo: vh是什么
+  height: 100%; // todo: vh是什么
   position: relative;
   .bgc {
     position: absolute;

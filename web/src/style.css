@@ -28,7 +28,7 @@ article, aside, figure, footer, header, hgroup, section {
 }
 
 /*滚动条样式*/
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 6px;
   height: 6px; 
   background: transparent;
@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-corner, body::-webkit-scrollbar-track {
   background-color: transparent;
-}
+} */
 /* ::-webkit-scrollbar 滚动条整体部分，可以设置宽度啥的
 ::-webkit-scrollbar-button 滚动条两端的按钮
 ::-webkit-scrollbar-track 外层轨道

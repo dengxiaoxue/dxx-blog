@@ -1,13 +1,15 @@
 <template>
-  <DxxNavBar
-    class="app-nav-bar"
-    :activeMenu="$route.path"
-    :menus="menus"
-    :placeholder="i18n('placeholder-search').value"
-    @switch-theme="(val: any) => setTheme(val)"
-    @switch-lang="(val: any) => setLang(val)"
-  >
-  </DxxNavBar>
+  <div style="height: 64px">
+    <DxxNavBar
+      class="app-nav-bar"
+      :activeMenu="$route.path"
+      :menus="menus"
+      :placeholder="i18n('placeholder-search').value"
+      @switch-theme="(val: any) => setTheme(val)"
+      @switch-lang="(val: any) => setLang(val)"
+    >
+    </DxxNavBar>
+  </div>
   <div class="main">
     <router-view></router-view>
   </div>
@@ -58,7 +60,29 @@ button {
   }
 }
 .main {
-  height: 100%;
+  height: calc(100% - 64px);
   width: 100%;
+  /* overflow: scroll; */
+  overflow-y: overlay;
+  box-sizing: border-box;
+}
+/**todo 横向滚动条 */
+.main::-webkit-scrollbar {
+  /* 纵向滚动条 宽度 */
+  width: 6px;
+  /* 横向滚动条 高度 */
+  height: 6px;
+  background: transparent;
+}
+.main::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #bebebe;
+  border: 1px solid transparent;
+  transition: border 0.15s;
+  background-clip: 'content-box';
+}
+.main::-webkit-scrollbar-corner,
+.main::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 </style>

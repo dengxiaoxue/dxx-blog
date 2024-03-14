@@ -10,7 +10,6 @@ import essayItem from './components/essay-item.vue'
 
 <style scoped lang="scss">
 .dxx-essay-page {
-  height: 100%;
   padding: 94px 30px 30px 30px;
   box-sizing: border-box;
   border-top: 1px solid salmon;
