@@ -1,0 +1,23 @@
+{
+  "name": "dxx-cli",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "dxx-cli": "bin/index.js"
+  },
+  "scripts": {
+    "build": "node scripts/build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "fast-glob": "^3.3.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}

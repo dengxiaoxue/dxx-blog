@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "dxx-cli build"
   },
   "dependencies": {
+    "dxx-cli": "workspace:^",
     "dxx-backend": "workspace:^",
     "dxx-web": "workspace:^",
     "dxx-web-ui": "workspace:^",
