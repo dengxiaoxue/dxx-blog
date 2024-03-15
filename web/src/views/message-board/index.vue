@@ -4,11 +4,11 @@
       <div class="left-box-wrap">
         <h1 class="page-title">留言板</h1>
         <Letter></Letter>
-      </div>
-      <hr />
-      <div class="left-box-wrap">
+        <hr />
         <CommentBox></CommentBox>
       </div>
+      <hr />
+      <div class="left-box-wrap"><ChattingVue></ChattingVue></div>
     </div>
     <div class="right"></div>
   </div>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import Letter from './letter.vue'
 import CommentBox from './comment-box.vue'
+import ChattingVue from './chatting.vue'
 </script>
 
 <style scoped lang="scss">
