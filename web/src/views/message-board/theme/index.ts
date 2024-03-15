@@ -35,5 +35,5 @@ export default {
     light: 'rgb(12 25 50 / 70%)',
     dark: '#fff',
   },
-  '--theme-10': 'ff6a6a1a',
+  '--theme-10': '#ff6a6a1a',
 }
