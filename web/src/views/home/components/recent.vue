@@ -1,7 +1,7 @@
 <template>
   <div class="recent-news">
     <div class="art-card" v-for="item in 3">
-      <DxxArticleCard></DxxArticleCard>
+      <DxxArticleCard>{{ item }}</DxxArticleCard>
     </div>
   </div>
 </template>

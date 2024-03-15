@@ -11,7 +11,7 @@
           />
           <span class="onlinetime_recent" style="background: #2bde3f"></span>
           <div class="info">
-            <div class="author">乌乌龟大师 <span class="date">3.11</span></div>
+            <div class="author">乌乌龟大师{{ item }} <span class="date">3.11</span></div>
             <div class="animetags">
               <span class="animeinfo lv_0">豆芽 </span>
               <p class="animeinfo lv_guest">访客</p>

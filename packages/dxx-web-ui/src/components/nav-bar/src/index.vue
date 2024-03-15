@@ -12,7 +12,7 @@
         <el-menu-item :index="item.to">{{ item.name }} </el-menu-item>
       </template>
       <!-- <el-sub-menu index="2">
-        <template #title>随笔</template>
+        <template #title>ElSubMenu随笔</template>
         <el-menu-item index="2-1">生活感悟</el-menu-item>
         <el-menu-item index="2-2">读书感悟</el-menu-item>
       </el-sub-menu> -->
@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElMenu, ElMenuItem, ElSubMenu, ElInput, ElIcon } from 'element-plus'
+import { ElMenu, ElMenuItem, ElInput, ElIcon } from 'element-plus'
 import { Search, Sunny, Moon } from '@element-plus/icons-vue'
 import type { Emits, Props } from './type.sfc'
 import { DxxIcon } from '../../icon/index'
