@@ -147,6 +147,10 @@
   }
 }
 
+#article-container {
+  color: #000000;
+}
+
 /* 夜间模式 */
 [data-theme='dark'] .formmain {
   background: #323232;

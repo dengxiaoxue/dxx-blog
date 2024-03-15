@@ -65,6 +65,7 @@ button {
   /* overflow: scroll; */
   overflow-y: overlay;
   box-sizing: border-box;
+  background-color: var(--common-bg);
 }
 /**todo 横向滚动条 */
 .main::-webkit-scrollbar {

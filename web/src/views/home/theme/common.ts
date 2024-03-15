@@ -1,6 +1,6 @@
 export default {
   '--common-bg': {
-    light: '#fff',
+    light: 'rgb(233, 240, 240)',
     dark: '#131313',
   },
   '--common-color': {
@@ -48,4 +48,5 @@ export default {
     light: '0px 0px 22px rgba(0, 0, 0, 0.24)',
     dark: '0px 0px 22px rgba(250, 250, 250, 0.24)',
   },
+  '--common-border-radius': '6px',
 }

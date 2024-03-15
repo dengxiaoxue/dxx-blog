@@ -66,13 +66,6 @@ const emits = defineEmits<{}>()
 
 <style scoped lang="scss">
 .chatting-wrap {
-  --box-shadow: 0 7px 20px 1px #d7ceff30;
-  --radius: 0.5rem;
-  --colorE: rgb(12 25 50 / 60%);
-  --main: rgb(12 25 50);
-  --colorF: rgb(12 25 50 / 70%);
-  --theme-10: #ff6a6a1a;
-
   .content-item-right {
     flex-direction: row-reverse;
   }
@@ -81,8 +74,21 @@ const emits = defineEmits<{}>()
     flex-direction: column;
     align-items: flex-end;
   }
+  .content {
+    background-color: rgba(241, 241, 241, 0.35);
+    border-radius: var(--common-border-radius);
+    padding: 10px 15px;
+    box-shadow: var(--msg-reply-shadow);
+    transform: translateZ(-10px);
+  }
 
-  border-radius: 6px;
+  margin-bottom: 30px;
+  flex: 1;
+  background: var(--msg-reply-bg);
+  padding: 1.5rem 2rem;
+  border-radius: var(--msg-border-radius);
+  box-shadow: 0 8px 16px -4px rgba(44, 45, 48, 0.047);
+  border: 1px solid #e3e8f7;
   .content-item-left {
     display: flex;
     position: relative;

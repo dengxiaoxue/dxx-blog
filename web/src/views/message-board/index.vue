@@ -8,7 +8,8 @@
         <CommentBox></CommentBox>
       </div>
       <hr />
-      <div class="left-box-wrap"><ChattingVue></ChattingVue></div>
+      <ChattingVue></ChattingVue>
+      <ChattingVue></ChattingVue>
     </div>
     <div class="right"></div>
   </div>
@@ -24,16 +25,12 @@ import ChattingVue from './chatting.vue'
 .dxx-message-page {
   padding: 30px 30px 150px;
   box-sizing: border-box;
-  background-color: var(--essay-bg);
   display: flex;
   .left {
     .left-box-wrap {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.9);
+      background-color: var(--msg-c-bg);
       padding: 2rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px -4px rgba(44, 45, 48, 0.047);
-      border: 1px solid #e3e8f7;
+      border-radius: var(--msg-border-radius);
     }
     & > div:first-child {
       transition: all 0.3s ease 0s;

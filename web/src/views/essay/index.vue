@@ -12,7 +12,5 @@ import essayItem from './components/essay-item.vue'
 .dxx-essay-page {
   padding: 94px 30px 30px 30px;
   box-sizing: border-box;
-  border-top: 1px solid salmon;
-  background-color: var(--essay-bg);
 }
 </style>
