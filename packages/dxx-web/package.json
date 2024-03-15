@@ -2,6 +2,7 @@
   "name": "dxx-web",
   "version": "0.0.2",
   "type": "module",
+  "private": false,
   "main": "src/main.ts",
   "files": [
     "/dist"

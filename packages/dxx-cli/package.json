@@ -1,6 +1,7 @@
 {
   "name": "dxx-cli",
   "version": "1.0.0",
+  "private": false,
   "description": "",
   "type": "module",
   "main": "src/index.js",
