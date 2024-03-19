@@ -3,7 +3,7 @@
     <div class="comment-head">
       <div class="comment-headline">
         <DxxIcon icon="pinglun"></DxxIcon>
-        <span> 评论</span>
+        <span>{{ i18n('评论').value }}</span>
       </div>
       <div class="comment-tips" id="comment-tips"><span>✅ 有什么对我想说的话？</span></div>
     </div>
@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import { i18n } from '@/utils/i18n'
 import { ref } from 'vue'
 import { DxxIcon, DxxInput, DxxButton } from 'dxx-web-ui'
 const value = ref()
@@ -56,7 +57,7 @@ const value = ref()
 }
 .comment-wrap {
   margin-top: 1rem;
-  :deep .el-textarea__inner {
+  :deep(.el-textarea__inner) {
     background-color: #f7f7f9 !important;
     border-radius: 12px;
   }
@@ -66,10 +67,10 @@ const value = ref()
     .email {
       margin: 0 10px;
     }
-    :deep .el-input__wrapper {
+    :deep(.el-input__wrapper) {
       background-color: #f7f7f9 !important;
     }
-    :deep .el-input-group__prepend {
+    :deep(.el-input-group__prepend) {
       background-color: #fff !important;
       padding: 0 10px !important;
     }

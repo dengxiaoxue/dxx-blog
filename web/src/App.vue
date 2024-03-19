@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { i18n, setLang, setTheme } from './utils/i18n'
+import { i18n, setLang, setTheme } from '@/utils/i18n'
 import { DxxNavBar } from 'dxx-web-ui'
 import { useRoute } from 'vue-router'
 import type { Menus } from 'dxx-web-ui'

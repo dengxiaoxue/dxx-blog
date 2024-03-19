@@ -2,7 +2,7 @@
   <div class="dxx-message-page">
     <div class="left">
       <div class="left-box-wrap">
-        <h1 class="page-title">留言板</h1>
+        <h1 class="page-title">{{ i18n('留言板').value }}</h1>
         <Letter></Letter>
         <hr />
         <CommentBox></CommentBox>
@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import { i18n } from '@/utils/i18n'
 import Letter from './letter.vue'
 import CommentBox from './comment-box.vue'
 import ChattingVue from './chatting.vue'
@@ -26,6 +27,7 @@ import ChattingVue from './chatting.vue'
   padding: 30px 30px 150px;
   box-sizing: border-box;
   display: flex;
+  justify-content: center;
   .left {
     .left-box-wrap {
       background-color: var(--msg-c-bg);

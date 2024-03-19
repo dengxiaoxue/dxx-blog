@@ -95,10 +95,10 @@ const switchLang = () => {
     flex: 1;
     background-color: transparent;
   }
-  :deep .el-menu--horizontal.el-menu {
+  :deep(.el-menu--horizontal.el-menu) {
     border-bottom: none;
   }
-  :deep .el-input__wrapper {
+  :deep(.el-input__wrapper) {
     background-color: transparent;
   }
 }

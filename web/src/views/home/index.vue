@@ -48,7 +48,7 @@ const handleClickArrow = () => {
       .dilider {
         margin-top: 50px;
       }
-      :deep .el-divider__text {
+      :deep(.el-divider__text) {
         background-color: var(--common-bg);
         color: var(--common-color);
       }
