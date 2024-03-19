@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { DxxForm, DxxFormItem, DxxInput, DxxButton, User, Lock } from 'dxx-web-ui'
 import { ref } from 'vue'
+import { login } from './api'
 
 const formInline = ref({
   user: '',
@@ -42,6 +43,8 @@ const validateForm = () => {
 }
 const submitForm = async () => {
   if (!validateForm()) return
+  const res = await login(formInline.value)
+  console.log(res)
 }
 </script>
 

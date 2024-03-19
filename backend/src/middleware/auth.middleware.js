@@ -8,6 +8,7 @@ const { PUBLIC_KEY } = require('../app/config');
 
 const verifyLogin = async (ctx, next) => {
   console.log("验证登录的middleware~");
+  ctx.set('Content-Type', 'application/json;charset=utf-8') // 设置响应头，解决浏览器preview返回的乱码的问题
 
   // 1.获取用户名和密码
   const { name, password } = ctx.request.body;

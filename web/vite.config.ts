@@ -22,4 +22,18 @@ export default defineConfig({
     }),
   ],
   resolve: { alias: { '@': resolve(__dirname, 'src') } },
+  // 代理-解决跨域
+  server: {
+    cors: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8888',
+        changeOrigin: true, // 允许跨域
+        rewrite: (path) => {
+          console.log(path)
+          return path.replace(/^\/api/, '')
+        },
+      },
+    },
+  },
 })
