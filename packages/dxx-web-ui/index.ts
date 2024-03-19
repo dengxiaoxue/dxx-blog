@@ -9,3 +9,4 @@ const install = (App: any) => {
 export default install
 
 export * from './src/components'
+export * from '@element-plus/icons-vue'

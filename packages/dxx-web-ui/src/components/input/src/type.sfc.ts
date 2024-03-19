@@ -1,4 +1,4 @@
 export interface InputProps {
-  type: string
-  modelValue: string
+  type?: string
+  modelValue?: string
 }

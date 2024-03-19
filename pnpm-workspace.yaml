@@ -5,3 +5,6 @@ packages:
 
   # all demos/
   - 'web'
+
+  # blog backend/
+  - 'backend'

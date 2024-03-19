@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 64px">
+  <div style="height: 64px" v-if="$route.path !== '/login'">
     <DxxNavBar
       class="app-nav-bar"
       :activeMenu="$route.path"
@@ -7,10 +7,11 @@
       :placeholder="i18n('placeholder-search').value"
       @switch-theme="(val: any) => setTheme(val)"
       @switch-lang="(val: any) => setLang(val)"
+      @login="login"
     >
     </DxxNavBar>
   </div>
-  <div class="main">
+  <div class="main" :style="{ height: $route.path !== '/login' ? 'calc(100% - 64px)' : '100%' }">
     <router-view></router-view>
   </div>
 </template>
@@ -19,10 +20,11 @@
 import { reactive } from 'vue'
 import { i18n, setLang, setTheme } from '@/utils/i18n'
 import { DxxNavBar } from 'dxx-web-ui'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import type { Menus } from 'dxx-web-ui'
 
 const $route = useRoute()
+const $router = useRouter()
 
 const menus = reactive<Menus[]>([
   { name: i18n('home-router'), to: '/' },
@@ -30,6 +32,9 @@ const menus = reactive<Menus[]>([
   { name: i18n('photo-router'), to: '/photo' },
   { name: i18n('message-router'), to: '/message' },
 ])
+const login = () => {
+  $router.push('./login')
+}
 </script>
 
 <style>
@@ -60,12 +65,13 @@ button {
   }
 }
 .main {
-  height: calc(100% - 64px);
+  /* height: calc(100% - 64px); */
   width: 100%;
   /* overflow: scroll; */
   overflow-y: overlay;
   box-sizing: border-box;
   background-color: var(--common-bg);
+  position: relative;
 }
 /**todo 横向滚动条 */
 .main::-webkit-scrollbar {

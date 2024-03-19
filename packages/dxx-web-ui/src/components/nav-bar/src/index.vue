@@ -35,6 +35,9 @@
         @click="switchLang"
         :iconColor="currentTheme === 'light' ? '#56565699' : '#fff'"
       ></DxxIcon>
+      <el-icon class="dxx-icon icon-lang" @click="login" size="20">
+        <UserFilled color="#565656" class="icon" />
+      </el-icon>
     </div>
   </div>
 </template>
@@ -42,7 +45,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ElMenu, ElMenuItem, ElInput, ElIcon } from 'element-plus'
-import { Search, Sunny, Moon } from '@element-plus/icons-vue'
+import { Search, Sunny, Moon, UserFilled } from '@element-plus/icons-vue'
 import type { Emits, Props } from './type.sfc'
 import { DxxIcon } from '../../icon/index'
 
@@ -65,6 +68,9 @@ const switchTheme = () => {
 const switchLang = () => {
   currentLang.value = currentLang.value === 'en' ? 'zh-CN' : 'en'
   emits('switch-lang', currentLang.value)
+}
+const login = () => {
+  emits('login')
 }
 </script>
 
