@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { authAPI } from './config'
+import { DxxMessage } from 'dxx-web-ui'
 
 const setToken = (tk: any) => {
   localStorage.setItem('dxx-token', `Bearer ${tk}`)
@@ -43,7 +44,6 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     // 2xx 范围内的状态码都会触发该函数。
-    console.log('response: ', response)
     if (response?.config?.url && response.config.url === '/login') {
       const token = response?.data?.token
       token && setToken(token)
@@ -52,7 +52,8 @@ instance.interceptors.response.use(
   },
   function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。
-    return Promise.reject(error)
+    DxxMessage.error(error.response.data ?? '报错了')
+    return Promise.reject(error?.response?.data ?? {})
   },
 )
 
