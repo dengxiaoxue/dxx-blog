@@ -1,6 +1,6 @@
 import oDxxMessage from './src/message'
 import theme from './theme/index'
-import { setThemeRule } from '../../utils/theme/index'
+import { setThemeRule } from 'dxx-web'
 setThemeRule(theme)
 const DxxMessage = oDxxMessage
 export { DxxMessage }
