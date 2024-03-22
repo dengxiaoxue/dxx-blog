@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Editor style="height: 500px; overflow-y: hidden" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode" />
+    <Editor style="height: 100%; overflow-y: hidden" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, shallowRef, onMounted, onBeforeUnmount, watch, computed } from 'vue'
+import { shallowRef, onBeforeUnmount, computed } from 'vue'
 import { Editor } from '@wangeditor/editor-for-vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 const props = withDefaults(
   defineProps<{
-    mode: 'default' | 'simple'
+    mode?: 'default' | 'simple'
     content?: any
   }>(),
   {

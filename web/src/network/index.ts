@@ -52,7 +52,7 @@ instance.interceptors.response.use(
   },
   function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。
-    DxxMessage.error(error.response.data ?? '报错了')
+    DxxMessage.error(error?.response?.data ?? '报错了')
     return Promise.reject(error?.response?.data ?? {})
   },
 )

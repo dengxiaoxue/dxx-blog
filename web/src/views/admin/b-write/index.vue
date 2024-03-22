@@ -17,7 +17,7 @@
         <div class="deescript-t">文章描述</div>
         <DxxInput
           placeholder="请输入文章描述1-100字"
-          v-model="value"
+          v-model="description"
           :maxlength="100"
           :showWordLimit="true"
           type="textarea"
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="right">
-      <div style="height: 200px"><render :content="content"></render></div>
+      <!-- <div style="height: 401px"><render :content="content"></render></div> -->
       <div class="btn-wrap">
         <DxxButton type="success" round @click="publish">发布文章</DxxButton>
         <DxxButton type="info" round @click="save">保存为草稿</DxxButton>
@@ -39,21 +39,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { DxxInput, DxxButton, EditPen } from 'dxx-web-ui'
-import editor from './components/editor.vue'
-import render from './components/render.vue'
+import { editor } from '@/components'
+import { publishartical } from './api'
 
 const editorRef = ref<any>(null)
 const title = ref()
 const description = ref()
-const content = ref(`<blockquote>模拟 Ajax 异步设置内容</blockquote>`)
+// const content = ref()
 
-const publish = () => {
+const publish = async () => {
   const data = {
     title: 'title',
     description: 'description',
-    content: 'content',
+    content: editorRef.value?.editor.getHtml(),
   }
-  console.log(editorRef.value?.editor.getHtml())
+  const res = await publishartical(data)
+  console.log(res)
 }
 
 const save = () => {}
@@ -91,6 +92,7 @@ const save = () => {}
 .right {
   border: 1px solid red;
   margin-left: 60px;
+  width: 200px;
   .btn-wrap {
     display: flex;
   }

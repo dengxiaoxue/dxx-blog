@@ -5,7 +5,6 @@
       :editor="editorRef"
       :defaultConfig="toolbarConfig"
       :mode="mode"
-      v-if="!readOnly"
     />
     <Editor
       style="height: 500px; overflow-y: hidden"
@@ -30,7 +29,7 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 const props = withDefaults(
   defineProps<{
-    mode: 'default' | 'simple'
+    mode?: 'default' | 'simple'
   }>(),
   {
     mode: 'default',
@@ -50,25 +49,25 @@ const toolbarConfig = {}
 // 编辑器配置
 const editorConfig = { placeholder: '请输入内容...', readOnly: false }
 
-const handleCreated = (editor) => {
+const handleCreated = (editor: any) => {
   editorRef.value = editor // 记录 editor 实例，重要！
 }
-const handleChange = (editor) => {
-  console.log('change:', editor.children)
+const handleChange = (editor: any) => {
+  console.log('change:', editor.children, props)
 }
-const handleDestroyed = (editor) => {
+const handleDestroyed = (editor: any) => {
   console.log('destroyed', editor)
 }
-const handleFocus = (editor) => {
+const handleFocus = (editor: any) => {
   console.log('focus', editor)
 }
-const handleBlur = (editor) => {
+const handleBlur = (editor: any) => {
   console.log('blur', editor)
 }
-const customAlert = (info, type) => {
+const customAlert = (info: any, type: any) => {
   alert(`【自定义提示】${type} - ${info}`)
 }
-const customPaste = (editor, event, callback) => {
+const customPaste = (editor: any, event: any, callback: any) => {
   console.log('ClipboardEvent 粘贴事件对象', event)
   // const html = event.clipboardData.getData('text/html') // 获取粘贴的 html
   // const text = event.clipboardData.getData('text/plain') // 获取粘贴的纯文本

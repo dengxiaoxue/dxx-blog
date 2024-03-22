@@ -4,8 +4,8 @@ export type Menus = {
 }
 export interface Props {
   menus: Menus[]
-  placeholder: string
-  activeMenu: any
+  placeholder?: string
+  activeMenu?: any
   router?: boolean
   color?: any
 }
