@@ -20,4 +20,6 @@ export default {
   '--theme-c-3': '#e9c46a',
   '--theme-c-4': '#f4a261',
   '--theme-c-5': '#e76f51',
+  '--radius': '6px',
+  '--box-shadow': '0px 0px 10px rgba(0, 0, 0, 0.24)',
 }

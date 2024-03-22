@@ -34,6 +34,7 @@ const menus = reactive<Menus[]>([
   display: flex;
   height: 100%;
   .menu-wrap {
+    width: 200px;
     background: var(--theme-c-1);
     :deep(.el-menu) {
       border-right: none;
@@ -43,7 +44,8 @@ const menus = reactive<Menus[]>([
     }
   }
   .main {
-    width: 100%;
+    flex: 1;
+    min-width: 700px;
     overflow-y: overlay;
     box-sizing: border-box;
     position: relative;
