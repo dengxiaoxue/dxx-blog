@@ -1,7 +1,7 @@
 <template>
-  <div style="height: 64px" v-if="$route.path !== '/login'">
+  <div style="height: 64px">
     <DxxNavBar
-      class="app-nav-bar"
+      class="app-nav-bar-front"
       :activeMenu="$route.path"
       :menus="menus"
       :placeholder="i18n('placeholder-search').value"
@@ -10,8 +10,9 @@
       @login="login"
     >
     </DxxNavBar>
+    
   </div>
-  <div class="main" :style="{ height: $route.path !== '/login' ? 'calc(100% - 64px)' : '100%' }">
+  <div class="main">
     <router-view></router-view>
   </div>
 </template>
@@ -20,12 +21,13 @@
 import { reactive } from 'vue'
 import { i18n, setLang, setTheme } from '@/utils/i18n'
 import { DxxNavBar } from 'dxx-web-ui'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import type { Menus } from 'dxx-web-ui'
 
+const emits = defineEmits<{
+  (e: 'login'): void
+}>()
 const $route = useRoute()
-const $router = useRouter()
-
 const menus = reactive<Menus[]>([
   { name: i18n('home-router'), to: '/' },
   { name: i18n('essay-router'), to: '/essay' },
@@ -33,22 +35,12 @@ const menus = reactive<Menus[]>([
   { name: i18n('message-router'), to: '/message' },
 ])
 const login = () => {
-  $router.push('./login')
+  emits('login')
 }
 </script>
 
-<style>
-/* 修改颜色 */
-body {
-  background: var(--common-bg);
-  color: var(--common-color);
-}
-button {
-  background: var(--common-btn-bg);
-  color: var(--common-btn-color);
-}
-
-.app-nav-bar {
+<style scoped lang="scss">
+.app-nav-bar-front {
   background-color: var(--common-nav-bg);
   position: fixed; /* 新属性sticky */
   top: 0; /* 距离页面顶部距离 */
@@ -56,16 +48,16 @@ button {
   left: 0;
   right: 0;
   min-width: 800px;
-  .el-menu-item {
+  :deep(.el-menu-item) {
     font-size: 20px !important;
   }
-  .el-menu-item,
-  .el-sub-menu__title {
+  :deep(.el-menu-item),
+  :deep(.el-sub-menu__title) {
     color: var(--common-nav-color);
   }
 }
 .main {
-  /* height: calc(100% - 64px); */
+  height: calc(100% - 64px);
   width: 100%;
   /* overflow: scroll; */
   overflow-y: overlay;

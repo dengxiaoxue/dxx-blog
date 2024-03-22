@@ -17,10 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { DxxForm, DxxFormItem, DxxInput, DxxButton, User, Lock } from 'dxx-web-ui'
+import { DxxForm, DxxFormItem, DxxInput, DxxButton, DxxMessage, User, Lock } from 'dxx-web-ui'
 import { ref } from 'vue'
 import { login } from './api'
+import { useRouter } from 'vue-router'
 
+const $router = useRouter()
 const formInline = ref({
   user: '',
   password: '',
@@ -44,7 +46,13 @@ const validateForm = () => {
 const submitForm = async () => {
   if (!validateForm()) return
   const res = await login(formInline.value)
-  console.log(res)
+  if (!res) return
+  // DxxMessage.success('恭喜你, 登录成功~')
+  // 新开一个页面
+  let routeUrl = $router.resolve({
+    path: './b-home',
+  })
+  window.open(routeUrl.href, '_blank')
 }
 </script>
 
