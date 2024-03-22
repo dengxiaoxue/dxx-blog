@@ -36,14 +36,14 @@ export default defineConfig({
       },
     },
   },
-//   build: {
-//     rollupOptions: {
-//        input: {
-//           // 配置所有页面路径，使得所有页面都会被打包
-//           main: resolve(__dirname, 'index.html'),
-//           pageone: resolve(__dirname, 'pageone/index.html'),
-//           pagetwo: resolve(__dirname, 'pagetwo/index.html')
-//        }
-//     }
-//  },
+  build: {
+    rollupOptions: {
+      input: {
+        // 配置所有页面路径，使得所有页面都会被打包
+        main: resolve(__dirname, 'index.html'),
+        login: resolve(__dirname, 'login/index.html'),
+        admin: resolve(__dirname, 'admin/index.html'),
+      },
+    },
+  },
 })
