@@ -9,7 +9,8 @@ declare module 'dxxxxx-canvas' {
   export = content
 }
 
-// declare module 'dxx-web-ui' {
-//   const content: any
-//   export = content
-// }
+declare module '*.vue' {
+  import { defineComponent } from 'vue'
+  const Component: ReturnType<typeof defineComponent>
+  export default Component
+}

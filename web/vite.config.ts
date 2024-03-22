@@ -45,7 +45,7 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8888',
         changeOrigin: true, // 允许跨域
-        rewrite: (path) => {
+        rewrite: (path: any) => {
           console.log(path)
           return path.replace(/^\/api/, '')
         },
