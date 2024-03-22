@@ -8,9 +8,9 @@ const setToken = (tk: any) => {
 const getToken = () => {
   return localStorage.getItem('dxx-token')
 }
-const removeToken = () => {
-  localStorage.removeItem('dxx-token')
-}
+// const removeToken = () => {
+//   localStorage.removeItem('dxx-token')
+// }
 
 const instance = axios.create({
   baseURL: '/api', // 所有的请求地址前缀部分

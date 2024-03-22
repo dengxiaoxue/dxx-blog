@@ -27,10 +27,7 @@ const emits = defineEmits<{
   (e: 'login'): void
 }>()
 const $route = useRoute()
-const menus = reactive<Menus[]>([
-  { name: i18n('b-home-router'), to: '/admin/' },
-  { name: i18n('b-login-router'), to: '/admin/login' },
-])
+const menus = reactive<Menus[]>([{ name: i18n('b-home-router'), to: '/admin/' }])
 const login = () => {
   emits('login')
 }
