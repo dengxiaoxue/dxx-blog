@@ -2,11 +2,11 @@
   <div class="dxx-ui-nav-bar">
     <el-menu
       :default-active="activeMenu"
-      mode="horizontal"
       @select="handleSelect"
       :ellipsis="true"
       router
       class="dxx-ui-nav-bar-menu"
+      v-bind="$attrs"
     >
       <template v-for="item in menus">
         <el-menu-item :index="item.to">{{ item.name }} </el-menu-item>
@@ -17,7 +17,7 @@
         <el-menu-item index="2-2">读书感悟</el-menu-item>
       </el-sub-menu> -->
     </el-menu>
-    <div class="right">
+    <div class="right" v-if="$attrs.mode === 'horizontal'">
       <ElInput
         v-model="searchModelVal"
         style="width: 240px; padding: 15px 10px"
@@ -76,7 +76,6 @@ const login = () => {
 
 <style scoped lang="scss">
 .dxx-ui-nav-bar {
-  padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;

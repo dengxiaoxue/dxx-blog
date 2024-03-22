@@ -3,6 +3,7 @@
     <DxxNavBar
       class="app-nav-bar-front"
       :activeMenu="$route.path"
+      mode="horizontal"
       :menus="menus"
       :placeholder="i18n('placeholder-search').value"
       @switch-theme="(val: any) => setTheme(val)"
@@ -10,7 +11,6 @@
       @login="login"
     >
     </DxxNavBar>
-    
   </div>
   <div class="main">
     <router-view></router-view>
@@ -41,6 +41,7 @@ const login = () => {
 
 <style scoped lang="scss">
 .app-nav-bar-front {
+  padding: 0 50px;
   background-color: var(--common-nav-bg);
   position: fixed; /* 新属性sticky */
   top: 0; /* 距离页面顶部距离 */
