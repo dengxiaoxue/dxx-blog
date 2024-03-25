@@ -18,16 +18,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, shallowRef, onMounted, onBeforeUnmount } from 'vue'
+import { ref, shallowRef, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 const props = withDefaults(
   defineProps<{
     mode?: 'default' | 'simple'
+    content?: any
   }>(),
   {
     mode: 'default',
+    content: '',
   },
 )
 
@@ -79,11 +81,16 @@ const customPaste = (editor: any, event: any, callback: any) => {
   // callback(true)
 }
 // 模拟 ajax 异步获取内容
-onMounted(() => {
-  setTimeout(() => {
-    valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>'
-  }, 1500)
-})
+onMounted(() => {})
+
+watch(
+  () => props.content,
+  (val: any) => {
+    if (val) {
+      valueHtml.value = props?.content || '<p>hello</p>'
+    }
+  },
+)
 
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {

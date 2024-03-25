@@ -6,6 +6,10 @@ export const getArticalList = (query: any) => {
   })
 }
 
+export const getArticalDetail = (articleId: any) => {
+  return instance.get(`/article/${articleId}`)
+}
+
 export const updateArtical = (data: any) => {
   return instance.patch('/article/update', data)
 }

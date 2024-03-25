@@ -11,7 +11,7 @@
       >
       </DxxInput>
       <div class="editor">
-        <editor ref="editorRef"></editor>
+        <editor ref="editorRef" :content="content"></editor>
       </div>
       <div class="deescript">
         <div class="deescript-t">文章描述</div>
@@ -27,7 +27,6 @@
       </div>
     </div>
     <div class="right">
-      <!-- <div style="height: 401px"><render :content="content"></render></div> -->
       <div class="btn-wrap">
         <DxxButton type="success" round @click="create">发布文章</DxxButton>
         <DxxButton type="info" round @click="update">更新</DxxButton>
@@ -37,15 +36,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { DxxInput, DxxButton, EditPen, DxxMessage } from 'dxx-web-ui'
 import { editor } from '@/components'
 import { publishartical, updateArtical } from './api'
+
+const props = defineProps<{
+  data?: any
+}>()
 
 const editorRef = ref<any>(null)
 const title = ref()
 const description = ref()
 const content = ref()
+
+watch(
+  () => props.data,
+  (val: any) => {
+    if (val) {
+      title.value = val.title ?? ''
+      description.value = val.description ?? ''
+      content.value = val.content ?? ''
+    }
+  },
+)
 
 const create = async () => {
   if (!validator()) return

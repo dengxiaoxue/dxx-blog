@@ -22,7 +22,7 @@ class ArticleController {
     const articleId = ctx.params.articleId;
 
     // 2.根据id去查询这条数据
-    const result = await ArticleService.getarticleById(articleId);
+    const result = await ArticleService.getArticleById(articleId);
     ctx.body = result;
   }
 

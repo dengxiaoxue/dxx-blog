@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Editor style="height: 100%; overflow-y: hidden" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode" />
-  </div>
+  <Editor style="height: 100%; overflow-y: hidden" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode" />
 </template>
 
 <script setup lang="ts">
