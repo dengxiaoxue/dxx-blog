@@ -29,6 +29,7 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 // 添加请求拦截器
 instance.interceptors.request.use(
   function (config) {
+    console.log('请求拦截器')
     if (config.url && authAPI.includes(config.url)) {
       const token = getToken()
       token && (config.headers.Authorization = token)

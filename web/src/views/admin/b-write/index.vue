@@ -29,8 +29,8 @@
     <div class="right">
       <!-- <div style="height: 401px"><render :content="content"></render></div> -->
       <div class="btn-wrap">
-        <DxxButton type="success" round @click="publish">发布文章</DxxButton>
-        <DxxButton type="info" round @click="save">保存为草稿</DxxButton>
+        <DxxButton type="success" round @click="create">发布文章</DxxButton>
+        <DxxButton type="info" round @click="update">更新</DxxButton>
       </div>
     </div>
   </div>
@@ -38,26 +38,56 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { DxxInput, DxxButton, EditPen } from 'dxx-web-ui'
+import { DxxInput, DxxButton, EditPen, DxxMessage } from 'dxx-web-ui'
 import { editor } from '@/components'
-import { publishartical } from './api'
+import { publishartical, updateArtical } from './api'
 
 const editorRef = ref<any>(null)
 const title = ref()
 const description = ref()
-// const content = ref()
+const content = ref()
 
-const publish = async () => {
+const create = async () => {
+  if (!validator()) return
   const data = {
-    title: 'title',
-    description: 'description',
-    content: editorRef.value?.editor.getHtml(),
+    title: '「2023 回顾」的永久链接.2023 回顾',
+    description: '给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？',
+    content: content.value,
   }
   const res = await publishartical(data)
   console.log(res)
 }
 
+const update = async () => {
+  if (!validator()) return
+  const data = {
+    id: 1,
+    title: '「2023 回顾」的永久链接.2023 回顾',
+    description: '给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？',
+    content: content.value,
+  }
+  const res = await updateArtical(data)
+  console.log(res)
+}
+
 const save = () => {}
+
+const validator = () => {
+  if (!title.value) {
+    DxxMessage.warning('请输入标题')
+    return
+  }
+  if (!description.value) {
+    DxxMessage.warning('请输入描述')
+    return
+  }
+  content.value = editorRef.value?.editor.getHtml()
+  if (!content.value) {
+    DxxMessage.warning('请输入内容')
+    return
+  }
+  return true
+}
 </script>
 
 <style scoped lang="scss">

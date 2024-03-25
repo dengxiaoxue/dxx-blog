@@ -22,6 +22,7 @@ const $route = useRoute()
 const menus = reactive<Menus[]>([
   { name: '仪表盘', to: '/admin/' },
   { name: '创作', to: '/admin/write' },
+  { name: '管理', to: '/admin/manage' },
 ])
 </script>
 

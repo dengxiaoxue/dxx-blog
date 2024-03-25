@@ -1,1 +1,1 @@
-export const authAPI = ['/publish']
+export const authAPI = ['/article']
