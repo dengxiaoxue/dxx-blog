@@ -45,9 +45,9 @@ class ArticleService {
   }
   
 
-  async update(content, articleId) {
-    const statement = `UPDATE article SET content = ? WHERE id = ?;`;
-    const [result] = await connection.execute(statement, [content, articleId]);
+  async update(content, articleId, title, description) {
+    const statement = `UPDATE article SET content = ?, title = ?, description = ? WHERE id = ?;`;
+    const [result] = await connection.execute(statement, [content, title, description, articleId]);
     return result;
   }
 

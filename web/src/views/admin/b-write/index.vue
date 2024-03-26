@@ -70,7 +70,7 @@ const publish = async () => {
   }
   // 编辑
   if (props?.data?.id) {
-    data.id = props.data.id
+    data.articleId = props.data.id
     const res = await updateArtical(data)
     console.log(res)
     return

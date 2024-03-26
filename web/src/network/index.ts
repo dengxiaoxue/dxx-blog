@@ -30,7 +30,10 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 instance.interceptors.request.use(
   function (config) {
     console.log('请求拦截器')
-    if (config.url && authAPI.includes(config.url)) {
+    const result = authAPI.some((api: any) => {
+      return config.url?.startsWith(api)
+    })
+    if (config.url && result) {
       const token = getToken()
       token && (config.headers.Authorization = token)
     }

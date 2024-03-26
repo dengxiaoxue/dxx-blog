@@ -48,11 +48,15 @@ class ArticleController {
   async update(ctx, next) {
     // 1.获取参数
     const { articleId } = ctx.params;
-    const { content } = ctx.request.body;
+    const { content, title, description } = ctx.request.body;
 
     // 2.修改内容
-    const result = await ArticleService.update(content, articleId);
-    ctx.body = result;
+    const result = await ArticleService.update(content, articleId, title, description);
+    if (result.serverStatus == 2) {
+      ctx.body = { data: 'success', code: 200 }
+    } else {
+      ctx.body = result;
+    }
   }
 
   async remove(ctx, next) {

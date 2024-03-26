@@ -5,5 +5,5 @@ export const publishartical = (data: any) => {
 }
 
 export const updateArtical = (data: any) => {
-  return instance.patch('/article/update', data)
+  return instance.patch(`/article/${data.articleId}`, data)
 }
