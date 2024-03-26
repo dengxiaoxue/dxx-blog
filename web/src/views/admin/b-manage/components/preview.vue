@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { getArticalDetail } from '../api'
+import { getArticalDetail } from '@/network/apis'
 import { render } from '@/components'
 
 const $route = useRoute()

@@ -36,7 +36,7 @@
 import { DxxTable, DxxTableColumn, DxxButton, DxxPagination, DxxMessage } from 'dxx-web-ui'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getArticalList, deleteArtical } from '../api'
+import { getArticalList, deleteArtical } from '@/network/apis'
 import dayjs from 'dayjs'
 
 const $router = useRouter()

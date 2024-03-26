@@ -40,7 +40,7 @@
 import { ref, watch } from 'vue'
 import { DxxInput, DxxButton, EditPen, DxxMessage } from 'dxx-web-ui'
 import { editor } from '@/components'
-import { publishartical, updateArtical } from './api'
+import { publishartical, updateArtical } from '@/network/apis'
 import Classify from './components/classify.vue'
 
 const props = defineProps<{

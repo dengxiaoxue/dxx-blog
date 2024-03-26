@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { getArticalDetail } from '../api'
+import { getArticalDetail } from '@/network/apis'
 import { useRoute } from 'vue-router'
 import Write from '../../b-write/index.vue'
 

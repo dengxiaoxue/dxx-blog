@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { DxxForm, DxxFormItem, DxxInput, DxxButton, User, Lock } from 'dxx-web-ui'
 import { ref } from 'vue'
-import { login } from './api'
+import { login } from '@/network/apis'
 import { i18n } from '@/utils/i18n'
 
 const formInline = ref({
