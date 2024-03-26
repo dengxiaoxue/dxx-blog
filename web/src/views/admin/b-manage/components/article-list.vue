@@ -57,10 +57,10 @@ const ToEdit = (data: any) => {
   $router.push({ path: '/admin/manage/edit', query: { id: data.id } })
 }
 
-const tableRowClassName = ({ row, rowIndex }) => {
-  if (rowIndex % 2 === 0) {
+const tableRowClassName = (data: any) => {
+  if (data.rowIndex % 2 === 0) {
     return 'warning-row'
-  } else if (rowIndex === 0) {
+  } else if (data.rowIndex === 0) {
     return 'success-row'
   }
   return ''

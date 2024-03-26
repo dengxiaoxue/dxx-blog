@@ -2,15 +2,10 @@
   <div class="media box">
     <div class="media-content">
       <article>
-        <h2 class="title">「2023 回顾」的永久链接.2023 回顾</h2>
+        <h2 class="title">{{ item.title }}</h2>
         <div class="is-size-7">
           <sup class="has-text-grey-light" style="font-family: 'Times New Roman'">“</sup>
-          给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？Um..., Oceanus.
-          是否你有过这样一种感觉，你从远古的深渊中苏醒，发现自己活在一个巨大的梦中？
-          提示：文内有关于死亡的描述，建议有死亡忌讳者回避。此篇记录个人有关生命的小悟。人生关键决策，记的简单，但如果明白是什么，就会明白其重要性。修灯和造笔后的灵感一现。
-          给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？Um..., Oceanus.
-          是否你有过这样一种感觉，你从远古的深渊中苏醒，发现自己活在一个巨大的梦中？
-          提示：文内有关于死亡的描述，建议有死亡忌讳者回避。此篇记录个人有关生命的小悟。人生关键决策，记的简单，但如果明白是什么，就会明白其重要性。修灯和造笔后的灵感一现。
+          {{ item.description }}
         </div>
       </article>
       <div class="postlist_tags" itemprop="keywords">
@@ -39,6 +34,9 @@
 
 <script setup lang="ts">
 import { DxxIcon } from 'dxx-web-ui'
+defineProps<{
+  item: any
+}>()
 const comment = () => {}
 </script>
 

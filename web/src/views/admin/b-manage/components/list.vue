@@ -13,7 +13,6 @@
 <script setup lang="ts">
 import { DxxTabPane, DxxTabs } from 'dxx-web-ui'
 import { ref } from 'vue'
-import type { TabsPaneContext } from 'dxx-web-ui'
 import ArticleList from './article-list.vue'
 
 const emits = defineEmits<{
@@ -23,7 +22,7 @@ const emits = defineEmits<{
 
 const activeName = ref('list')
 
-const handleClick = (tab: TabsPaneContext, event: Event) => {
+const handleClick = (tab: any, event: Event) => {
   console.log(tab, event)
 }
 </script>
