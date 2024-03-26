@@ -26,6 +26,7 @@ getDetail()
   background-color: #fff;
   margin: auto;
   max-width: 1000px;
+  min-width: 800px;
   box-shadow: var(--box-shadow);
   border-radius: var(--radius);
   padding: 20px;

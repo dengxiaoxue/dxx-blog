@@ -28,8 +28,8 @@
     </div>
     <div class="right">
       <div class="btn-wrap">
-        <DxxButton type="success" round @click="create">发布文章</DxxButton>
-        <DxxButton type="info" round @click="update">更新</DxxButton>
+        <DxxButton type="success" round @click="publish">发布文章</DxxButton>
+        <!-- <DxxButton type="info" round @click="update">更新</DxxButton> -->
       </div>
     </div>
   </div>
@@ -61,30 +61,24 @@ watch(
   },
 )
 
-const create = async () => {
+const publish = async () => {
   if (!validator()) return
-  const data = {
-    title: '「2023 回顾」的永久链接.2023 回顾',
-    description: '给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？',
+  const data: any = {
+    title: title.value,
+    description: description.value,
     content: content.value,
   }
+  // 编辑
+  if (props?.data?.id) {
+    data.id = props.data.id
+    const res = await updateArtical(data)
+    console.log(res)
+    return
+  }
+  // 新建
   const res = await publishartical(data)
   console.log(res)
 }
-
-const update = async () => {
-  if (!validator()) return
-  const data = {
-    id: 1,
-    title: '「2023 回顾」的永久链接.2023 回顾',
-    description: '给自己 2023 打 6 分。2092年了，你理解的关于软件世界最好的暗喻是什么？',
-    content: content.value,
-  }
-  const res = await updateArtical(data)
-  console.log(res)
-}
-
-const save = () => {}
 
 const validator = () => {
   if (!title.value) {
@@ -111,7 +105,7 @@ const validator = () => {
   justify-content: center;
 }
 .left {
-  max-width: 1000px;
+  flex: 1;
   .editor {
     margin-top: 30px;
     box-shadow: var(--box-shadow);

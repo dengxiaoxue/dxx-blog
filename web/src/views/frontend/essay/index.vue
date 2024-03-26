@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import essayItem from './components/essay-item.vue'
-import { getArticalList } from './api'
+import { getArticalList } from '../../admin/b-manage/api'
 import { ref } from 'vue'
 import dayjs from 'dayjs'
 

@@ -20,9 +20,9 @@ const {
   verifyLabelExists
 } = require('../middleware/label.middleware');
 
-articleRouter.post('/create', verifyAuth, create);
+articleRouter.post('/', verifyAuth, create);
 
-articleRouter.get('/list', list);
+articleRouter.get('/', list);
 articleRouter.get('/:articleId', detail);
 
 // 1.用户必须登录 2.用户具备权限

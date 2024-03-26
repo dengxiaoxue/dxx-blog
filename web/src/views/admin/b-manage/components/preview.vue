@@ -12,7 +12,7 @@ import { getArticalDetail } from '../api'
 import { render } from '@/components'
 
 const $route = useRoute()
-const data = ref({})
+const data = ref<any>({})
 
 const getDetail = async () => {
   const res = await getArticalDetail($route.query.id)
