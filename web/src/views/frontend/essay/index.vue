@@ -26,7 +26,7 @@ const getList = async () => {
 }
 
 const ToPreview = (data: any) => {
-  $router.push({ path: `/essay/${data.id}`, query: { id: data.id } })
+  $router.push({ path: `/essay/${data.id}`, query: { id: data.id, title: data.title } })
 }
 
 console.log(location.href)
