@@ -9,3 +9,7 @@ export const getArticalList = (query: any) => {
 export const getArticalDetail = (articleId: any) => {
   return instance.get(`/article/${articleId}`)
 }
+
+export const deleteArtical = (articleId: any) => {
+  return instance.delete(`/article/${articleId}`)
+}

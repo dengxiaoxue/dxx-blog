@@ -16,7 +16,7 @@
       <template #default="scope">
         <dxx-button link type="primary" size="small" @click.prevent="ToPreview(scope.row)">预览</dxx-button>
         <dxx-button link type="primary" size="small" @click.prevent="ToEdit(scope.row)">编辑</dxx-button>
-        <dxx-button link type="danger" size="small" @click.prevent="deleteRow(scope.$index)">删除</dxx-button>
+        <dxx-button link type="danger" size="small" @click.prevent="deleteRow(scope.row)">删除</dxx-button>
       </template>
     </dxx-table-column>
   </dxx-table>
@@ -33,10 +33,10 @@
 </template>
 
 <script setup lang="ts">
-import { DxxTable, DxxTableColumn, DxxButton, DxxPagination } from 'dxx-web-ui'
+import { DxxTable, DxxTableColumn, DxxButton, DxxPagination, DxxMessage } from 'dxx-web-ui'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getArticalList } from '../api'
+import { getArticalList, deleteArtical } from '../api'
 import dayjs from 'dayjs'
 
 const $router = useRouter()
@@ -45,8 +45,11 @@ const tableData = ref<any>([])
 const total = ref(0)
 const pageIndex = ref(1)
 const pageSize = ref(10)
-const deleteRow = (index: number) => {
-  tableData.value.splice(index, 1)
+const deleteRow = async (row: any) => {
+  const res = await deleteArtical(row.id)
+  if (!res) return
+  DxxMessage.success('删除成功')
+  getList()
 }
 const handleSelectionChange = (val: any) => {
   multipleSelection.value = val
@@ -59,11 +62,12 @@ const getList = async () => {
   total.value = res.total
   pageIndex.value = res.pageIndex
   pageSize.value = res.pageSize
-  tableData.value = res.data.map((item: any) => ({
-    ...item,
-    createAt: dayjs(item.createAt).format('YYYY-MM-DD'),
-    updateAt: dayjs(item.updateAt).format('YYYY-MM-DD'),
-  }))
+  tableData.value =
+    res?.data?.map((item: any) => ({
+      ...item,
+      createAt: dayjs(item.createAt).format('YYYY-MM-DD'),
+      updateAt: dayjs(item.updateAt).format('YYYY-MM-DD'),
+    })) || []
 }
 
 const ToPreview = (data: any) => {
