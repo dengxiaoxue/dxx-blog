@@ -20,10 +20,20 @@
       </template>
     </dxx-table-column>
   </dxx-table>
+  <dxx-pagination
+    background
+    layout="total, prev, pager, next, sizes"
+    :total="total"
+    class="mt-4 dxx-pagination"
+    :pager-count="7"
+    :page-sizes="[10, 20, 30, 40]"
+    @current-change="currentChange"
+    @size-change="sizeChange"
+  ></dxx-pagination>
 </template>
 
 <script setup lang="ts">
-import { DxxTable, DxxTableColumn, DxxButton } from 'dxx-web-ui'
+import { DxxTable, DxxTableColumn, DxxButton, DxxPagination } from 'dxx-web-ui'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { getArticalList } from '../api'
@@ -31,7 +41,10 @@ import dayjs from 'dayjs'
 
 const $router = useRouter()
 const multipleSelection = ref<any>([])
-const tableData = ref([])
+const tableData = ref<any>([])
+const total = ref(0)
+const pageIndex = ref(1)
+const pageSize = ref(10)
 const deleteRow = (index: number) => {
   tableData.value.splice(index, 1)
 }
@@ -39,10 +52,13 @@ const handleSelectionChange = (val: any) => {
   multipleSelection.value = val
 }
 const getList = async () => {
-  const res = await getArticalList({
-    pageIndex: 1,
-    pageSize: 10,
+  const res: any = await getArticalList({
+    pageIndex: pageIndex.value,
+    pageSize: pageSize.value,
   })
+  total.value = res.total
+  pageIndex.value = res.pageIndex
+  pageSize.value = res.pageSize
   tableData.value = res.data.map((item: any) => ({
     ...item,
     createAt: dayjs(item.createAt).format('YYYY-MM-DD'),
@@ -57,6 +73,15 @@ const ToEdit = (data: any) => {
   $router.push({ path: '/admin/manage/edit', query: { id: data.id } })
 }
 
+const currentChange = (index: any) => {
+  pageIndex.value = index
+  getList()
+}
+const sizeChange = (size: any) => {
+  pageSize.value = size
+  getList()
+}
+
 const tableRowClassName = (data: any) => {
   if (data.rowIndex % 2 === 0) {
     return 'warning-row'
@@ -69,7 +94,13 @@ const tableRowClassName = (data: any) => {
 getList()
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.dxx-pagination {
+  margin: 30px 0 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+</style>
 
 <style>
 .el-table .warning-row {
