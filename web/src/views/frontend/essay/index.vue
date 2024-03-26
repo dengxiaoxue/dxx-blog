@@ -1,6 +1,6 @@
 <template>
   <div class="dxx-essay-page">
-    <essayItem v-for="item in listData" :item="item" class="essay-item"></essayItem>
+    <essayItem v-for="item in listData" :item="item" class="essay-item" @click="() => ToPreview(item)"></essayItem>
   </div>
 </template>
 
@@ -8,8 +8,10 @@
 import essayItem from './components/essay-item.vue'
 import { getArticalList } from '@/network/apis'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import dayjs from 'dayjs'
 
+const $router = useRouter()
 const listData = ref([])
 const getList = async () => {
   const res = await getArticalList({
@@ -22,6 +24,12 @@ const getList = async () => {
     updateAt: dayjs(item.updateAt).format('YYYY-MM-DD'),
   }))
 }
+
+const ToPreview = (data: any) => {
+  $router.push({ path: `/essay/${data.id}`, query: { id: data.id } })
+}
+
+console.log(location.href)
 
 getList()
 </script>

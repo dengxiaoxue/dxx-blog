@@ -2,7 +2,7 @@
   <dxx-table
     :data="tableData"
     style="width: 100%"
-    max-height="250"
+    max-height="450"
     show-overflow-tooltip
     @selection-change="handleSelectionChange"
     :row-class-name="tableRowClassName"

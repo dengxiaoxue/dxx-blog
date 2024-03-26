@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { shallowRef, onBeforeUnmount, computed } from 'vue'
+import { shallowRef, onBeforeUnmount, ref, watch } from 'vue'
 import { Editor } from '@wangeditor/editor-for-vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
@@ -14,6 +14,7 @@ const props = withDefaults(
   }>(),
   {
     mode: 'default',
+    content: '',
   },
 )
 
@@ -23,9 +24,14 @@ const emits = defineEmits<{}>()
 const editorRef = shallowRef()
 
 // 内容 HTML
-const valueHtml = computed(() => {
-  return props.content || ''
-})
+const valueHtml = ref('')
+
+watch(
+  () => props.content,
+  (val: any) => {
+    valueHtml.value = val || ''
+  },
+)
 
 // 编辑器配置
 const editorConfig = { readOnly: true }
@@ -41,5 +47,3 @@ defineExpose({
   editor: editorRef,
 })
 </script>
-
-<style scoped></style>
