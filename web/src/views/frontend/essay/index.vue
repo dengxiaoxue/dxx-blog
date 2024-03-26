@@ -1,6 +1,6 @@
 <template>
   <div class="dxx-essay-page">
-    <essayItem v-for="item in listData" :item="item"></essayItem>
+    <essayItem v-for="item in listData" :item="item" class="essay-item"></essayItem>
   </div>
 </template>
 
@@ -30,5 +30,8 @@ getList()
 .dxx-essay-page {
   padding: 94px 30px 30px 30px;
   box-sizing: border-box;
+  .essay-item {
+    margin-bottom: 30px;
+  }
 }
 </style>

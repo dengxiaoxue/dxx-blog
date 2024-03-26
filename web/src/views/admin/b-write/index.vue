@@ -27,6 +27,7 @@
       </div>
     </div>
     <div class="right">
+      <Classify></Classify>
       <div class="btn-wrap">
         <DxxButton type="success" round @click="publish">发布文章</DxxButton>
         <!-- <DxxButton type="info" round @click="update">更新</DxxButton> -->
@@ -40,6 +41,7 @@ import { ref, watch } from 'vue'
 import { DxxInput, DxxButton, EditPen, DxxMessage } from 'dxx-web-ui'
 import { editor } from '@/components'
 import { publishartical, updateArtical } from './api'
+import Classify from './components/classify.vue'
 
 const props = defineProps<{
   data?: any
@@ -125,13 +127,12 @@ const validator = () => {
       height: 40px;
       line-height: 40px;
     }
-    :deep(.el-textarea__inner) {
+    :deep(.dxx-textarea__inner) {
       border-radius: 0;
     }
   }
 }
 .right {
-  border: 1px solid red;
   margin-left: 60px;
   width: 200px;
   .btn-wrap {
