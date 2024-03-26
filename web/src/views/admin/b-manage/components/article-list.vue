@@ -83,9 +83,9 @@ const sizeChange = (size: any) => {
 }
 
 const tableRowClassName = (data: any) => {
-  if (data.rowIndex % 2 === 0) {
+  if (data.rowIndex % 4 === 0) {
     return 'warning-row'
-  } else if (data.rowIndex === 0) {
+  } else if (data.rowIndex % 4 === 2) {
     return 'success-row'
   }
   return ''

@@ -13,8 +13,17 @@ class ArticleController {
     const title = ctx.request.body.title;
 
     // 2.将数据插入到数据库
-    const result = await ArticleService.create(userId, content, description, title);
-    ctx.body = result;
+    const [result, result2] = await ArticleService.create(userId, content, description, title);
+    if (result.serverStatus == 2) {
+      ctx.body = {
+        data: {
+          id: result2[0]['LAST_INSERT_ID()']
+        },
+        code: 200
+      };
+    }else {
+      ctx.body = result;
+    }
   }
 
   async detail(ctx, next) {

@@ -11,8 +11,10 @@ const connection = require('../app/database');
 class ArticleService {
   async create(userId, content, description, title) {
     const statement = `INSERT INTO article (content, user_id, description, title) VALUES (?, ?, ?, ?);`;
+    const statement2 = `SELECT LAST_INSERT_ID();`
     const [result] = await connection.execute(statement, [content, userId, description, title]);
-    return result;
+    const [result2] = await connection.execute(statement2);
+    return [result, result2];
   }
 
   async getArticleById(id) {

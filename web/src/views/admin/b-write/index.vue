@@ -49,11 +49,13 @@ const editorRef = ref<any>(null)
 const title = ref()
 const description = ref()
 const content = ref()
+const currentId = ref()
 
 watch(
   () => props.data,
   (val: any) => {
     if (val) {
+      currentId.value = val.id
       title.value = val.title ?? ''
       description.value = val.description ?? ''
       content.value = val.content ?? ''
@@ -69,15 +71,16 @@ const publish = async () => {
     content: content.value,
   }
   // 编辑
-  if (props?.data?.id) {
-    data.articleId = props.data.id
+  if (currentId.value) {
+    data.articleId = currentId.value
     const res = await updateArtical(data)
-    console.log(res)
+    if (res) DxxMessage.success('编辑成功')
     return
   }
   // 新建
   const res = await publishartical(data)
-  console.log(res)
+  if (res) DxxMessage.success('发布成功')
+  currentId.value = res?.data?.id || null
 }
 
 const validator = () => {

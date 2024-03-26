@@ -67,11 +67,11 @@ const customAlert = (info: any, type: any) => {
 const customPaste = (editor: any, event: any, callback: any) => {
   console.log('ClipboardEvent 粘贴事件对象', event)
   // const html = event.clipboardData.getData('text/html') // 获取粘贴的 html
-  // const text = event.clipboardData.getData('text/plain') // 获取粘贴的纯文本
+  const text = event.clipboardData.getData('text/plain') // 获取粘贴的纯文本
   // const rtf = event.clipboardData.getData('text/rtf') // 获取 rtf 数据（如从 word wsp 复制粘贴）
 
   // 自定义插入内容
-  editor.insertText('xxx')
+  editor.insertText(text)
 
   // 返回 false ，阻止默认粘贴行为
   event.preventDefault()
